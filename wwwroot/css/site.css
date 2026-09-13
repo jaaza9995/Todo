@@ -1,43 +1,112 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+:root {
+    --cozy-bg: #f9f6f0;
+    --cozy-card-bg: #ffffff;
+    --cozy-text: #333333;
+    --cozy-muted-bg: #f5f2ed;
+    --cozy-muted-text: #9e978e;
+    --cozy-btn-bg: #e27d60;
+    --cozy-btn-hover: #d16c50;
+    --cozy-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
 }
 
 body {
-    margin-bottom: 60px;
+    background-color: var(--cozy-bg);
+    color: var(--cozy-text);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-.background {
-    position: relative;
-    z-index: 1;
-    height: 100vh;
-}
-    .background::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        background-image: url("https://preview.pixlr.com/images/800wm/1176/2/1176106312.jpg");
-        opacity: .1;
-    }
-
-.buttons-column {
-    text-align: end;
+/* Hovedkort og oppgavekort */
+.todo-card, .todo-item-card {
+    background-color: var(--cozy-card-bg);
+    border-radius: 20px;
+    box-shadow: var(--cozy-shadow);
+    border:rgba(0, 0, 0, 0.03)
 }
 
-.todos-column {
-    vertical-align: middle;
+.todo-header-title {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #2c2c2c;
+    margin: 0;
+}
+
+/* Input-wrapper og felt */
+.cozy-input-wrapper {
+    display: flex;
+    background-color: var(--cozy-muted-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 3px;
+}
+
+.cozy-input {
+    border: 1.5px solid #e2ded4;
+    border-radius: 12px;
+    background-color: #faf8f5;
+    padding: 12px 18px;
+    width: 100%;
+    font-size: 1rem;
+    color: var(--cozy-text);
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Gir en pen fremheving når brukeren trykker i feltet */
+.cozy-input:focus {
+    border-color: #e07a5f;
+    box-shadow: 0 0 0 3px rgba(224, 122, 95, 0.15);
+}
+
+.btn-cozy-submit {
+    background-color: #e07a5f;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-cozy-submit:hover {
+    background-color: #cb684c;
+    color: white;
+}
+
+/* Tekst og badge i listen */
+.todo-badge {
+    background-color: var(--cozy-muted-bg);
+    color: var(--cozy-muted-text);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+
+.todo-text {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2c2c2c;
+}
+
+/* Ikon-knapper (blyant og søppelkasse) */
+.btn-action-icon {
+    background-color: var(--cozy-muted-bg);
+    border: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+.btn-action-icon:hover {
+    background-color: #ebe5dc;
+    transform: scale(1.05);
 }

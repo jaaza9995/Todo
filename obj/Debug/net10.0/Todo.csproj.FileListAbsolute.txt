@@ -121,5 +121,6 @@
 /Users/jaraazad/Documents/ToDo/Todo/bin/Debug/net10.0/runtimes/win-x86/native/e_sqlite3.dll
 /Users/jaraazad/Documents/ToDo/Todo/obj/Debug/net10.0/Todo.csproj.AssemblyReference.cache
 /Users/jaraazad/Documents/ToDo/Todo/obj/Debug/net10.0/Todo.csproj.Up2Date
-/Users/jaraazad/Documents/ToDo/Todo/obj/Debug/net10.0/compressed/ay1wlr5j3j-{0}-3hqtpwl9rq-3hqtpwl9rq.gz
 /Users/jaraazad/Documents/ToDo/Todo/obj/Debug/net10.0/compressed/qh02uiuogj-{0}-dkqbni705q-dkqbni705q.gz
+/Users/jaraazad/Documents/ToDo/Todo/obj/Debug/net10.0/Todo.sourcelink.json
+/Users/jaraazad/Documents/ToDo/Todo/obj/Debug/net10.0/compressed/ay1wlr5j3j-{0}-va9s9uzgtg-va9s9uzgtg.gz

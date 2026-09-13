@@ -2,28 +2,42 @@
 
 <div class="row justify-content-center">
     <div class="col-xl-6 col-lg-8 col-md-8 col-sm-10">
-        <table class="table">
-            <thead>
-                <tr class="table-primary">
-                    <th scope="col">Id</th>
-                    <th scope="col">Name</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var t in Model.TodoList)
-                {
-                    <tr>
-                        <th class="todos-column" scope="row">@t.Id</th>
-                        <td class="todos-column">@t.Name</td>
-                        <td class="buttons-column">
-                            <input type="submit" class="btn btn-danger" value="Delete" onClick="deleteTodo(@t.Id)" />
-                            <input type="submit" class="btn btn-primary" value="Update" onClick="populateForm(@t.Id)" />
-                        </td>
+        
+        <!-- Skjema for å legge til/oppdatere -->
+        <div class="todo-card mb-4 p-4">
+            <h3 class="cozy-title mb-3">My Checklist</h3>
+            <form asp-action="Insert" id="form-action" method="post" role="form">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <input asp-for="Todo.Id" type="hidden" />
+                
+                <div class="input-group">
+                    <input asp-for="Todo.Name" class="form-control cozy-input" placeholder="What do you want to do today?" />
+                    <button type="submit" id="form-button" class="btn btn-cozy-submit">Add</button>
+                </div>
+                <span asp-validation-for="Todo.Name" class="text-danger small mt-1 d-block"></span>
+            </form>
+        </div>
 
-                    </tr>
-                }
-            </tbody>
-        </table>
+        <!-- Todo Listen (Kort-basert istedenfor tabell) -->
+        <div class="todo-list">
+            @foreach (var t in Model.TodoList)
+            {
+                <div class="todo-item-card d-flex align-items-center justify-content-between p-3 mb-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <span class="todo-badge">#@t.Id</span>
+                        <span class="todo-text">@t.Name</span>
+                    </div>
+                    <div class="todo-actions d-flex gap-2">
+                        <button type="button" class="btn btn-cozy-icon btn-edit" title="Update" onClick="populateForm(@t.Id)">
+                            ✏️
+                        </button>
+                        <button type="button" class="btn btn-cozy-icon btn-delete" title="Delete" onClick="deleteTodo(@t.Id)">
+                            🗑️
+                        </button>
+                    </div>
+                </div>
+            }
+        </div>
+
     </div>
 </div>
